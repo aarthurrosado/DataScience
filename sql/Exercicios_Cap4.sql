@@ -6,3 +6,17 @@ DT_INICIO, DT_TERMINO "Finalizado em:"
     DT_TERMINO >= TO_dATE('01/08/2018','DD/MM/YYYY')
     ORDER BY DT_TERMINO DESC;
     
+-- CONSULTA 02
+SELECT CD_IMPLANTACAO "código da implantação", CD_PROJETO "código do projeto",
+       NR_MATRICULA "número matricula do funcionario", DT_ENTRADA "data de entrada",
+       DT_SAIDA "data de saída do funcionário"
+       FROM T_SIP_IMPLANTACAO
+       WHERE DT_SAIDA IS NULL
+       ORDER BY 2, 3, 4;
+
+-- Consulta 03
+SELECT CD_PROJETO, CD_iMPLANTACAO, NR_MATRICULA,
+       DT_ENTRADA "Inicio em:", DT_SAIDA "Conclusão:"
+       FROM T_SIP_IMPLANTACAO
+       WHERE DT_SAIDA IS NOT NULL
+       ORDER BY 1 ASC, 3 ASC, 5 DESC;
